@@ -1,0 +1,15 @@
+{
+    "envId": "cloudbase-koa-2gj0jhjr761e287a",
+    "framework": {
+        "name": "koa-starter",
+        "plugins": {
+            "node": {
+                "use": "@cloudbase/framework-plugin-node",
+                "inputs": {
+                    "name": "koa-starter",
+                    "path": "/koa-starter"
+                }
+            }
+        }
+    }
+}
