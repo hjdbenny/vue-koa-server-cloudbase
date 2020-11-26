@@ -1,10 +1,10 @@
-const router = require("koa-router")();
-const db = require("../utils/db");
+const router = require('koa-router')();
+const db = require('../utils/db');
 
-router.prefix("/api/user");
+router.prefix('/api/user');
 
-router.get("/getUserInfo", async (ctx, next) => {
-    let user = await db.collection("users").where({ _id: ctx.query.id }).get();
+router.get('/getUserInfo', async (ctx, next) => {
+    let user = await db.collection('users').where({ _id: ctx.query.id }).get();
     ctx.body = {
         code: 0,
         message: null,
@@ -18,23 +18,23 @@ router.get("/getUserInfo", async (ctx, next) => {
     };
 });
 
-router.post("/updateUserInfo", async (ctx, next) => {
+router.post('/updateUserInfo', async (ctx, next) => {
     let data = ctx.request.body;
     let newData = {};
     for (const key in data) {
         if (data.hasOwnProperty(key)) {
-            if (key != "id") {
+            if (key != 'id') {
                 newData[key] = data[key];
             }
         }
     }
     let user = await db
-        .collection("users")
+        .collection('users')
         .where({ _id: data.id })
         .update(newData);
     ctx.body = {
         code: 0,
-        message: "修改成功",
+        message: '修改成功',
         data: null,
     };
 });
