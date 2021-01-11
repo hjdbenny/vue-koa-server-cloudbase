@@ -17,6 +17,7 @@ router.get('/getArticleList', async (ctx, next) => {
             .collection('articles')
             .limit(pageSize)
             .skip((pageNumber - 1) * pageSize)
+            .orderBy('createTime', 'desc')
             .get();
     }
     result.data.forEach((item) => {
