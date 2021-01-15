@@ -1,7 +1,7 @@
-const db = require("./db");
+const { db, app } = require('./db');
 let dbCommon = {
     getCollection: async (collectionName) => {
-        let collectionNames = db.collection("collectionNames");
+        let collectionNames = db.collection('collectionNames');
 
         let exist = await collectionNames
             .where({ collectionName: collectionName })

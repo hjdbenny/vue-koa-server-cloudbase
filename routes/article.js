@@ -1,6 +1,6 @@
 const router = require('koa-router')();
 const moment = require('moment');
-const db = require('../utils/db');
+const { db, app } = require('../utils/db');
 
 router.prefix('/api/article');
 

@@ -1,5 +1,5 @@
 const router = require('koa-router')();
-const db = require('../utils/db');
+const { db, app } = require('../utils/db');
 
 router.prefix('/api/user');
 

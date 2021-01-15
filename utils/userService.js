@@ -1,11 +1,11 @@
-const db = require("./db");
+const { db, app } = require('./db');
 module.exports = {
     // getUser: async (id) => {
     //     return await User.findByPk(id);
     // },
     checkUser: async (name) => {
         return new Promise((resolve, reject) => {
-            db.collection("users")
+            db.collection('users')
                 .where({ name: name })
                 .get()
                 .then((res) => {
