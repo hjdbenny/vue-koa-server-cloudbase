@@ -8,9 +8,11 @@ router.prefix('/api/common');
 // 上传图片
 router.post('/uploadImage', async (ctx, next) => {
     const file = ctx.request.files.file; // 获取上传文件
-    console.log('file', file);
+    let cloudPath = ctx.request.body.cloudPath
+        ? ctx.request.body.cloudPath
+        : null;
     let cloudFile = await app.uploadFile({
-        cloudPath: 'avatar/' + file.name,
+        cloudPath: cloudPath + file.name,
         fileContent: fs.createReadStream(file.path),
     });
 

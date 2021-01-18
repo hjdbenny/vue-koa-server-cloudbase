@@ -20,9 +20,16 @@ router.get('/getArticleList', async (ctx, next) => {
             .orderBy('createTime', 'desc')
             .get();
     }
-    result.data.forEach((item) => {
+    for (let item of result.data) {
         item.id = item._id;
-    });
+        if (item.imageFileIds) {
+            // 获取临时链接
+            let tempFileUrl = await app.getTempFileURL({
+                fileList: [item.imageFileIds[0]],
+            });
+            item.firstPic = tempFileUrl.fileList[0].tempFileURL;
+        }
+    }
     ctx.body = {
         code: 0,
         message: null,
@@ -56,6 +63,7 @@ router.post('/addArticle', async (ctx, next) => {
         title: data.title,
         content: data.content,
         author: data.author,
+        imageFileIds: data.imageFileIds,
         createTime: moment().format('YYYY-MM-DD HH:mm:ss'),
         updateTime: moment().format('YYYY-MM-DD HH:mm:ss'),
     });
