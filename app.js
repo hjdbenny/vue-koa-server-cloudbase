@@ -14,6 +14,7 @@ const articleRouter = require('./routes/article');
 const commonRouter = require('./routes/common');
 const errorHandler = require('./middlewares/errorHandler');
 const jwtResolver = require('./middlewares/jwtResolver');
+const scheduleInstance = require('./schedule/index');
 
 // error handler
 onerror(app);
@@ -55,5 +56,8 @@ app.use(userRouter.routes());
 app.use(authRouter.routes());
 app.use(articleRouter.routes());
 app.use(commonRouter.routes());
+
+// schedule
+scheduleInstance.onTimeAlarm();
 
 module.exports = app;

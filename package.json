@@ -10,24 +10,26 @@
         "deploy:server": "cloudbase framework deploy node"
     },
     "dependencies": {
+        "@cloudbase/node-sdk": "^2.4.0",
         "core-js": "^3.6.5",
         "crypto": "^1.0.1",
-        "jsonwebtoken": "^8.5.1",
-        "@cloudbase/node-sdk": "^2.4.0",
         "debug": "^4.1.1",
+        "jsonwebtoken": "^8.5.1",
         "koa": "^2.13.0",
         "koa-body": "^4.2.0",
         "koa-bodyparser": "^4.3.0",
         "koa-convert": "^1.2.0",
+        "koa-helmet": "^5.2.0",
         "koa-json": "^2.0.2",
         "koa-logger": "^3.2.1",
         "koa-onerror": "^4.1.0",
         "koa-router": "^9.4.0",
         "koa-static": "^5.0.0",
         "koa2-cors": "^2.0.6",
-        "koa-helmet": "^5.2.0",
         "moment": "^2.27.0",
-        "pug": "^3.0.0"
+        "node-schedule": "^1.3.2",
+        "pug": "^3.0.0",
+        "ws": "^7.4.2"
     },
     "devDependencies": {
         "prettier": "^2.0.5",
