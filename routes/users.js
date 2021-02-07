@@ -14,6 +14,7 @@ router.get('/getUserInfo', async (ctx, next) => {
             name: user.data[0].name,
             nickname: user.data[0].nickname,
             age: user.data[0].age,
+            email: user.data[0].email,
         },
     };
 });

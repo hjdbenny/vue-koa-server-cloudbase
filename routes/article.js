@@ -11,7 +11,10 @@ router.get('/getArticleList', async (ctx, next) => {
     let count = await db.collection('articles').count();
     let result;
     if (pageSize == 0) {
-        result = await db.collection('articles').get();
+        result = await db
+            .collection('articles')
+            .orderBy('createTime', 'desc')
+            .get();
     } else {
         result = await db
             .collection('articles')
