@@ -25,7 +25,7 @@ router.get('/getArticleList', async (ctx, next) => {
     }
     for (let item of result.data) {
         item.id = item._id;
-        if (item.imageFileIds) {
+        if (item.imageFileIds && item.imageFileIds.length) {
             // 获取临时链接
             let tempFileUrl = await app.getTempFileURL({
                 fileList: [item.imageFileIds[0]],
