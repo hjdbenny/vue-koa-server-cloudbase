@@ -114,4 +114,15 @@ router.delete('/deleteArticle', async (ctx, next) => {
     };
 });
 
+// 获取所有标签
+router.get('/getAllTags', async (ctx, next) => {
+    let result = await db.collection('articles').field({ tags: true }).get();
+    let unique = result.data.map((item) => item.tags);
+    ctx.body = {
+        code: 0,
+        message: null,
+        data: Array.from(new Set(unique)),
+    };
+});
+
 module.exports = router;

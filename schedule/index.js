@@ -14,7 +14,9 @@ let scheduleInstance = {
             //每秒定时执行一次:
             schedule.scheduleJob('0-59 * * * * *', () => {
                 if (moment().minute() === 0 && moment().second() === 0) {
-                    ws.send(moment().format('YYYY-MM-DD HH:mm:ss'));
+                    ws.send(
+                        JSON.stringify(moment().format('YYYY-MM-DD HH:mm:ss'))
+                    );
                 }
             });
         });
